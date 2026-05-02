@@ -1,12 +1,11 @@
 ﻿<MudFileUpload T="IBrowserFile" FilesChanged="HandleFileChanged" Accept=".png,.jpg"
                @ondragenter="@SetDragClass" @ondragleave="@ClearDragClass" @ondragend="@ClearDragClass">
-    <ButtonTemplate>
-        <MudFab HtmlTag="label"
-                Color="Color.Primary"
-                Icon="@Icons.Material.Filled.Image"
+    <CustomContent Context="upload">
+        <MudFab Color="Color.Primary"
+                StartIcon="@Icons.Material.Filled.Image"
                 Label="Load image (.jpg, .png)"
-                for="@context"/>
-    </ButtonTemplate>
+                OnClick="@(upload.OpenFilePickerAsync)" />
+    </CustomContent>
 </MudFileUpload>
 
 @code {
@@ -21,7 +20,7 @@
     [Parameter]
     public EventCallback<string> ImageUploaded { get; set; }
 
-    private async Task HandleFileChanged(IBrowserFile file)
+    private async Task HandleFileChanged(IBrowserFile? file)
     {
         if (file is null)
         {
