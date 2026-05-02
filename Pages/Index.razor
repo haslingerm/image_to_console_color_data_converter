@@ -11,8 +11,8 @@
         {
             <MudStack>
                 <MudText>16 Colors Array</MudText>
-                <MudSlider Value="_width" Min="4" Max="82" Step="2" 
-                           ValueChanged="(int newWidth) => HandleWidthChanged(newWidth)">@_width Columns</MudSlider>
+                <MudSlider T="int" Value="_width" Min="4" Max="82" Step="2"
+                           ValueChanged="HandleWidthChanged">@_width Columns</MudSlider>
                 <MudSpacer />
                 @foreach(var row in _csvRows)
                 {
