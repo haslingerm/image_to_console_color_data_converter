@@ -12,9 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1.8.0
+        uses: actions/setup-dotnet@v5.2.0
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
           include-prerelease: true
       - name: Publish .NET Core Project
         run: dotnet publish ImageForConsoleConverter.csproj -c Release -o release
